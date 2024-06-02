@@ -3,8 +3,7 @@ module uCondicionalchecker(
     input logic [3:0] Flags,
     output logic CondEx
 );
-//la unidad condicional esta fragmentada en 2 partes, la unidad condicional y este condicional
-//checker.
+
     logic neg, zero, carry, overflow, ge;
     assign {neg, zero, carry, overflow} = Flags;
     assign ge = (neg == overflow);
