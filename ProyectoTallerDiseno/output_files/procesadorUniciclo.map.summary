@@ -1,7 +1,7 @@
-Analysis & Elaboration Status : Successful - Mon Jun  3 16:24:29 2024
+Analysis & Elaboration Status : Successful - Fri Jun  7 20:24:15 2024
 Quartus Prime Version : 22.1std.0 Build 915 10/25/2022 SC Lite Edition
 Revision Name : procesadorUniciclo
-Top-level Entity Name : controller
+Top-level Entity Name : ram_Tb
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A until Partition Merge
 Total registers : N/A until Partition Merge
