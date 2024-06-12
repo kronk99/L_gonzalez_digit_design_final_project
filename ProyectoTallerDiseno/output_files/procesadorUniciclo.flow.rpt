@@ -1,5 +1,5 @@
 Flow report for procesadorUniciclo
-Fri Jun  7 20:24:16 2024
+Wed Jun 12 03:51:21 2024
 Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
 
 
@@ -41,10 +41,10 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------------------------------------------------+
 ; Flow Summary                                                                 ;
 +-----------------------------+------------------------------------------------+
-; Flow Status                 ; Successful - Fri Jun  7 20:24:15 2024          ;
+; Flow Status                 ; Successful - Wed Jun 12 03:51:21 2024          ;
 ; Quartus Prime Version       ; 22.1std.0 Build 915 10/25/2022 SC Lite Edition ;
 ; Revision Name               ; procesadorUniciclo                             ;
-; Top-level Entity Name       ; ram_Tb                                         ;
+; Top-level Entity Name       ; top                                            ;
 ; Family                      ; Cyclone V                                      ;
 ; Device                      ; 5CSEMA5F31C6                                   ;
 ; Timing Models               ; Final                                          ;
@@ -63,7 +63,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/07/2024 20:24:01 ;
+; Start date & time ; 06/12/2024 03:51:06 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; procesadorUniciclo  ;
 +-------------------+---------------------+
@@ -74,30 +74,35 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------+----------------------------------------+--------------------+-------------+-----------------------------------+
 ; Assignment Name                      ; Value                                  ; Default Value      ; Entity Name ; Section Id                        ;
 +--------------------------------------+----------------------------------------+--------------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID                ; 53671020195469.171781344008172         ; --                 ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID                ; 53671020195469.171818586606072         ; --                 ; --          ; --                                ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --                 ; --          ; controller_tb                     ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --                 ; --          ; testbenchgeneral                  ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --                 ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --                 ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --                 ; --          ; eda_board_design_signal_integrity ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --                 ; --          ; eda_board_design_symbol           ;
-; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; controller_tb                          ; --                 ; --          ; eda_simulation                    ;
+; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; testbenchgeneral                       ; --                 ; --          ; eda_simulation                    ;
 ; EDA_OUTPUT_DATA_FORMAT               ; Systemverilog Hdl                      ; --                 ; --          ; eda_simulation                    ;
 ; EDA_SIMULATION_TOOL                  ; ModelSim (SystemVerilog)               ; <None>             ; --          ; --                                ;
 ; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                        ; --                 ; --          ; eda_simulation                    ;
 ; EDA_TEST_BENCH_FILE                  ; controller_tb.sv                       ; --                 ; --          ; controller_tb                     ;
+; EDA_TEST_BENCH_FILE                  ; testbenchgeneral.sv                    ; --                 ; --          ; testbenchgeneral                  ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; controller_tb                          ; --                 ; --          ; controller_tb                     ;
+; EDA_TEST_BENCH_MODULE_NAME           ; testbenchgeneral                       ; --                 ; --          ; testbenchgeneral                  ;
 ; EDA_TEST_BENCH_NAME                  ; controller_tb                          ; --                 ; --          ; eda_simulation                    ;
+; EDA_TEST_BENCH_NAME                  ; testbenchgeneral                       ; --                 ; --          ; eda_simulation                    ;
 ; EDA_TIME_SCALE                       ; 1 ps                                   ; --                 ; --          ; eda_simulation                    ;
 ; MAX_CORE_JUNCTION_TEMP               ; 85                                     ; --                 ; --          ; --                                ;
 ; MIN_CORE_JUNCTION_TEMP               ; 0                                      ; --                 ; --          ; --                                ;
 ; MISC_FILE                            ; RAMtree_bb.v                           ; --                 ; --          ; --                                ;
-; PARTITION_COLOR                      ; -- (Not supported for targeted family) ; --                 ; ram_Tb      ; Top                               ;
-; PARTITION_FITTER_PRESERVATION_LEVEL  ; -- (Not supported for targeted family) ; --                 ; ram_Tb      ; Top                               ;
-; PARTITION_NETLIST_TYPE               ; -- (Not supported for targeted family) ; --                 ; ram_Tb      ; Top                               ;
+; MISC_FILE                            ; ROM_bb.v                               ; --                 ; --          ; --                                ;
+; PARTITION_COLOR                      ; -- (Not supported for targeted family) ; --                 ; top         ; Top                               ;
+; PARTITION_FITTER_PRESERVATION_LEVEL  ; -- (Not supported for targeted family) ; --                 ; top         ; Top                               ;
+; PARTITION_NETLIST_TYPE               ; -- (Not supported for targeted family) ; --                 ; top         ; Top                               ;
 ; POWER_BOARD_THERMAL_MODEL            ; None (CONSERVATIVE)                    ; --                 ; --          ; --                                ;
 ; POWER_PRESET_COOLING_SOLUTION        ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --                 ; --          ; --                                ;
 ; PROJECT_OUTPUT_DIRECTORY             ; output_files                           ; --                 ; --          ; --                                ;
-; TOP_LEVEL_ENTITY                     ; ram_Tb                                 ; procesadorUniciclo ; --          ; --                                ;
+; TOP_LEVEL_ENTITY                     ; top                                    ; procesadorUniciclo ; --          ; --                                ;
 +--------------------------------------+----------------------------------------+--------------------+-------------+-----------------------------------+
 
 
@@ -106,8 +111,8 @@ https://fpgasoftware.intel.com/eula.
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name            ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Elaboration ; 00:00:15     ; 1.0                     ; 4798 MB             ; 00:00:32                           ;
-; Total                  ; 00:00:15     ; --                      ; --                  ; 00:00:32                           ;
+; Analysis & Elaboration ; 00:00:16     ; 1.0                     ; 4840 MB             ; 00:00:31                           ;
+; Total                  ; 00:00:16     ; --                      ; --                  ; 00:00:31                           ;
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

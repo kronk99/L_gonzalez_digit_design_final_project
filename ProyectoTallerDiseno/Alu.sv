@@ -26,7 +26,7 @@ module Alu //Full module that uses a multiplexor
 	 //crear un logic de X bits para guardar cada uno de las flags
 	 sumador #(N) mysumador( .num1(operand1), .num2(operand2),.Cin(0),.Cout(cout) ,.Resul(res_s)); //Addition 1
 	 restador #(N) myrestador(.num1(operand1), .num2(operand2),.Carryout(negcarry), .Result(res_r)); //Substraction
-	 multiplicador #(N) mymultiplicador(.num1(operand1), .num2(operand2), .Result(res_m),.OFLOW(overflow)); //Multiplication2
+	 Multiplicador #(N) mymultiplicador(.num1(operand1), .num2(operand2), .Result(res_m),.OFLOW(overflow)); //Multiplication2
 	 Divisor #(N) mydivisor(.dividend(operand1), .divisor(operand2), .quotient(res_d), .remainder(res_md)); //Division3
 	 //Module
 	 andoperation #(N) myand(.a(operand1), .b(operand2), .result(res_and)); //AND
@@ -34,18 +34,17 @@ module Alu //Full module that uses a multiplexor
 	 xoroperator #(N) myxor(.a(operand1), .b(operand2), .result(res_xor)); //XOR
 	 shiftleft #(N) myshiftl(.a(operand1), .b(operand2), .result(res_sl)); //Shift left
 	 shiftright #(N) myshiftr(.a(operand1), .b(operand2), .result(res_sr)); //Shift left
-	 assign banderas[0]=cout;
-	 assign banderas[1]=overflow;
-	 assign banderas[2]=negcarry;
-	 assign banderas[3]=0;
+	 assign banderas[2]=cout;
+	 assign banderas[3]=overflow;
+	 assign banderas[0]=negcarry;
 	
 	//This creates the selection based on op_select, after number 10 repeats some operations
     always_comb begin
         case(op_select)
             4'b0000: resultado = res_s; // Addition
             4'b0001: resultado = res_r; // Subtraction
-            4'b0010: resultado = res_m; // Multiplication
-            4'b0011: resultado = res_d; // Division
+            4'b0010: resultado = res_and; // Multiplication
+            4'b0011: resultado = res_or; // Division
 				4'b0100: resultado = res_md; // Module
             4'b0101: resultado = res_and; // AND
             4'b0110: resultado = res_or; // OR
@@ -60,5 +59,6 @@ module Alu //Full module that uses a multiplexor
             4'b1111: resultado = res_s; // Addition
             default: resultado = 8'h00; // Default case 
         endcase
+		  banderas[1] = (resultado == 0) ? 1'b1 : 1'b0;
     end
 endmodule

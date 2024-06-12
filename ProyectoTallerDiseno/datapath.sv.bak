@@ -3,7 +3,7 @@ input logic [1:0] RegSrc,
 input logic RegWrite,
 input logic [1:0] ImmSrc,
 input logic ALUSrc,
-input logic [3:0] ALUControl, //cambio por lo de nuestra ALU.
+input logic [1:0] ALUControl,
 input logic MemtoReg,
 input logic PCSrc,
 output logic [3:0] ALUFlags,
@@ -24,20 +24,15 @@ input logic [31:0] ReadData);
 	// register file logic
 	mux2 #(4) ra1mux(Instr[19:16], 4'b1111, RegSrc[0], RA1);
 	mux2 #(4) ra2mux(Instr[3:0], Instr[15:12], RegSrc[1], RA2);
-	
 	regfile rf(clk, RegWrite, RA1, RA2,
 	Instr[15:12], Result, PCPlus8,
 	SrcA, WriteData);
 	
 	mux2 #(32) resmux(ALUResult, ReadData, MemtoReg, Result);
-	
 	extend ext(Instr[23:0], ImmSrc, ExtImm);
 	// ALU logic
 	mux2 #(32) srcbmux(WriteData, ExtImm, ALUSrc, SrcB);
-	Alu #(32) alu(.op_select(ALUControl), .operand1(SrcA),.operand2(SrcB),
-	.resultado(ALUResult), .banderas(ALUFlags));
-	
-	
+	alu alu(SrcA, SrcB, ALUControl, ALUResult, ALUFlags);
 	
 	
 endmodule

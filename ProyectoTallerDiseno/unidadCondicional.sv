@@ -15,7 +15,7 @@ module unidadCondicional( //esta es la unidad condicional de la unidad de contro
         .clk(clk),
         .reset(reset),
         .D(FlagWrite[1]),
-        .EN(FlagW),
+        .EN(ALUFlags[3:2]),
         .Q(Flags[3:2])
     );
 
@@ -23,7 +23,7 @@ module unidadCondicional( //esta es la unidad condicional de la unidad de contro
         .clk(clk),
         .reset(reset),
         .D(FlagWrite[0]),
-        .EN(FlagW),
+        .EN(ALUFlags[1:0]),
         .Q(Flags[1:0])
     );
 

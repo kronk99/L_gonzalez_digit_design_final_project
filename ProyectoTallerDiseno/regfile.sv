@@ -9,8 +9,10 @@ logic [31:0] rf[14:0];//matriz de banco de registros ,registerfile
 // read two ports combinationally
 // write third port on rising edge of clock
 // register 15 reads PC + 8 instead, esto es lo del look ahead 
+	
 	always_ff @(posedge clk)
 		if (we3) rf[wa3] <= wd3;//si we3 est activo, se escribe lo que haya em wd3
+	 //TOTALMENTE EXPERIMENTAL QUITAR
 		
 	assign rd1 = (ra1 == 4'b1111) ? r15 : rf[ra1]; //valores de salida
 	assign rd2 = (ra2 == 4'b1111) ? r15 : rf[ra2]; //valores de salida rd , si ra1 o ra2 es 1111 , el resultado es r15 del pc+8 , si no lee los

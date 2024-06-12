@@ -1,0 +1,99 @@
+-- Copyright (C) 2022  Intel Corporation. All rights reserved.
+-- Your use of Intel Corporation's design tools, logic functions 
+-- and other software and tools, and any partner logic 
+-- functions, and any output files from any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Intel Program License 
+-- Subscription Agreement, the Intel Quartus Prime License Agreement,
+-- the Intel FPGA IP License Agreement, or other applicable license
+-- agreement, including, without limitation, that your use is for
+-- the sole purpose of programming logic devices manufactured by
+-- Intel and sold by Intel or its authorized distributors.  Please
+-- refer to the applicable agreement for further details, at
+-- https://fpgasoftware.intel.com/eula.
+
+-- Quartus Prime generated Memory Initialization File (.mif)
+
+WIDTH=8;
+DEPTH=128;
+
+ADDRESS_RADIX=HEX;
+DATA_RADIX=HEX;
+
+CONTENT BEGIN
+	0:e5965000;
+	1:e1550000;
+	2:0afffff0;
+	3:eaffffff;
+	4:e1510006;
+	5:0a00002a;
+	6:e5914000;
+	7:e3540020;
+	8:0a00000c;
+	9:e3540061;
+	10:0a000008;
+	11:e3540065;
+	12:0a000006;
+	13:e3540069;
+	14:0a000004;
+	15:e354006f;
+	16:0a000002;
+	17:e3540075;
+	18:0a000000;
+	19:ea00001a;
+	20:e2833001;
+	21:ea000018;
+	22:e5965000;
+	23:e5871000;
+	24:e1a01008;
+	25:e1550003;
+	26:1a55555a;
+	27:e1a01008;
+	28:e2811001;
+	29:e2822001;
+	30:e5915000;
+	31:e2455020;
+	32:e5825000;
+	33:e2811001;
+	34:e2822001;
+	35:e1510007;
+	36:0a555557;
+	37:eafffff5;
+	38:e2811001;
+	39:e2822001;
+	40:e5919000;
+	41:e5829000;
+	42:e1510007;
+	43:0a000000;
+	44:eafffff8;
+	45:e3a03000;
+	46:e1a08007;
+	47:e2811001;
+	48:eaffffd2;
+	49:e59a5000;
+	50:e1550000;
+	51:0afffffc;
+	52:e1a0200c;
+	53:e152000b;
+	54:0a00000f;
+	55:e5924000;
+	56:e3540041;
+	57:0a000009;
+	58:e3540045;
+	59:0a000007;
+	60:e3540049;
+	61:0a000005;
+	62:e354004f;
+	63:0a000003;
+	64:e3540055;
+	65:0a000001;
+	66:e2822001;
+	67:eafffff0;
+	68:e5825000;
+	69:e2822001;
+	70:eaffffed;
+	71:e320f000;
+	[72..127]:0;
+
+END

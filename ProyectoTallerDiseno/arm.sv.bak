@@ -7,17 +7,13 @@ input logic [31:0] ReadData);
 
 	logic [3:0] ALUFlags;
 	logic RegWrite,ALUSrc, MemtoReg, PCSrc;
-	logic [1:0] RegSrc, ImmSrc;
-	logic [3:0] ALUControl;//este logic cambia de tamaño por como esta la alu.
-	
-	
+	logic [1:0] RegSrc, ImmSrc, ALUControl;
 	
 	controller c(clk, reset, Instr[31:12], ALUFlags,
 	RegSrc, RegWrite, ImmSrc,
 	ALUSrc, ALUControl,
 	MemWrite, MemtoReg, PCSrc);
 	
-	//primero arreglamos datapath con alu control. "Arreglado"
 	datapath dp(clk, reset,
 	RegSrc, RegWrite, ImmSrc,
 	ALUSrc, ALUControl,
