@@ -4,10 +4,6 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "vgaclk",
-					"strict" : false
-				},
-				{
 					"name" : "hsync",
 					"strict" : false
 				},
@@ -117,10 +113,6 @@
 				},
 				{
 					"name" : "b[7]",
-					"strict" : false
-				},
-				{
-					"name" : "clk",
 					"strict" : false
 				}
 			]
