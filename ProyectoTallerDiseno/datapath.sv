@@ -3,7 +3,7 @@ input logic [1:0] RegSrc,
 input logic RegWrite,
 input logic [1:0] ImmSrc,
 input logic ALUSrc,
-input logic [3:0] ALUControl, //cambio por lo de nuestra ALU.
+input logic [2:0] ALUControl, //cambio por lo de nuestra ALU.
 input logic MemtoReg,
 input logic PCSrc,
 output logic [3:0] ALUFlags,
@@ -34,8 +34,8 @@ input logic [31:0] ReadData);
 	extend ext(Instr[23:0], ImmSrc, ExtImm);
 	// ALU logic
 	mux2 #(32) srcbmux(WriteData, ExtImm, ALUSrc, SrcB);
-	Alu #(32) alu(.op_select(ALUControl), .operand1(SrcA),.operand2(SrcB),
-	.resultado(ALUResult), .banderas(ALUFlags));
+	Alu #(32) alu(.opcode_i(ALUControl), .a_i(SrcA),.b_i(SrcB),
+	.result_o(ALUResult), .ALUFlags(ALUFlags));
 	
 	
 	

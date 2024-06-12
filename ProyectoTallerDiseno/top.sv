@@ -10,9 +10,8 @@ output logic [31:0] WriteData,
 	
 	ROM mirom(.address(PC),.clock(clk), .q(Instr));
 	
-	RAMtree dmem(.address_a(DataAdr),.address_b(11'b0),
-	.clock(clk),.data_a(WriteData),.data_b(8'b0),.wren_a(MemWrite),.wren_b(1'b0),.q_a(ReadData),.q_b(extra));
-	
+	RAMtree dmem(.address_a(DataAdr),.address_b(DataAdr),
+	.clock(clk),.data_a(WriteData),.data_b(WriteData),.wren_a(1'b0),.wren_b(MemWrite),.q_a(ReadData),.q_b(extra));
 	always @(posedge clk) begin
 		salida = ReadData;	
 	end

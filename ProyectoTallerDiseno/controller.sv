@@ -6,7 +6,7 @@ module controller(
     output logic RegWrite,
     output logic [1:0] ImmSrc,
     output logic ALUSrc,
-    output logic [3:0] ALUControl, //correcion de la alucontrol
+    output logic [2:0] ALUControl, //correcion de la alucontrol
     output logic MemWrite, MemtoReg,
     output logic PCSrc
 );

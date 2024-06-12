@@ -8,7 +8,7 @@ input logic [31:0] ReadData);
 	logic [3:0] ALUFlags;
 	logic RegWrite,ALUSrc, MemtoReg, PCSrc;
 	logic [1:0] RegSrc, ImmSrc;
-	logic [3:0] ALUControl;//este logic cambia de tamaño por como esta la alu.
+	logic [2:0] ALUControl;//este logic cambia de tamaño por como esta la alu.
 	
 	
 	

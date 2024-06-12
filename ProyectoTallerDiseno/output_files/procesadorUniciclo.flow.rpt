@@ -1,5 +1,5 @@
 Flow report for procesadorUniciclo
-Wed Jun 12 03:51:21 2024
+Wed Jun 12 04:44:35 2024
 Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
 
 
@@ -41,7 +41,7 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------------------------------------------------+
 ; Flow Summary                                                                 ;
 +-----------------------------+------------------------------------------------+
-; Flow Status                 ; Successful - Wed Jun 12 03:51:21 2024          ;
+; Flow Status                 ; Successful - Wed Jun 12 04:44:35 2024          ;
 ; Quartus Prime Version       ; 22.1std.0 Build 915 10/25/2022 SC Lite Edition ;
 ; Revision Name               ; procesadorUniciclo                             ;
 ; Top-level Entity Name       ; top                                            ;
@@ -63,7 +63,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/12/2024 03:51:06 ;
+; Start date & time ; 06/12/2024 04:44:16 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; procesadorUniciclo  ;
 +-------------------+---------------------+
@@ -74,7 +74,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------+----------------------------------------+--------------------+-------------+-----------------------------------+
 ; Assignment Name                      ; Value                                  ; Default Value      ; Entity Name ; Section Id                        ;
 +--------------------------------------+----------------------------------------+--------------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID                ; 53671020195469.171818586606072         ; --                 ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID                ; 53671020195469.171818905609456         ; --                 ; --          ; --                                ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --                 ; --          ; controller_tb                     ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --                 ; --          ; testbenchgeneral                  ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --                 ; --          ; eda_board_design_timing           ;
@@ -111,8 +111,8 @@ https://fpgasoftware.intel.com/eula.
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name            ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Elaboration ; 00:00:16     ; 1.0                     ; 4840 MB             ; 00:00:31                           ;
-; Total                  ; 00:00:16     ; --                      ; --                  ; 00:00:31                           ;
+; Analysis & Elaboration ; 00:00:20     ; 1.0                     ; 4804 MB             ; 00:00:44                           ;
+; Total                  ; 00:00:20     ; --                      ; --                  ; 00:00:44                           ;
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

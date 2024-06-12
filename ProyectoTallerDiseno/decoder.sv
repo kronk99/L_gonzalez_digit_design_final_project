@@ -6,7 +6,7 @@ module decoder(
 	output logic PCS, RegW, MemW,
 	output logic MemtoReg, ALUSrc,
 	output logic [1:0] ImmSrc, RegSrc, 
-	output logic [3:0] ALUControl
+	output logic [2:0] ALUControl //arreglo alu control
 	);
 
 	logic [9:0] controls;

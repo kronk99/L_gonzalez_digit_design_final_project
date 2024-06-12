@@ -1,64 +1,38 @@
-module Alu //Full module that uses a multiplexor
-
-	#(parameter N = 4)(
-    input [3:0] op_select, //Selects the operation using 4 bits 
-    input [N-1:0] operand1, 
-    input [N-1:0] operand2,
-    output logic [2*N-1:0] resultado,
-	 output logic [3:0] banderas
-);
-
-    // Declare instances of different calculator modules
-	 
-	 logic [N-1:0] res_s;
-	 logic [N-1:0] res_r;
-	 logic [2*N-1:0] res_m;
-	 logic [N-1:0] res_d;
-	 logic [N-1:0] res_md;
-	 logic [N-1:0] res_and;
-	 logic [N-1:0] res_or;
-	 logic [N-1:0] res_xor;
-	 logic [N:0] res_sl;
-	 logic [N-1:0] res_sr;
-	 logic cout;
-	 logic negcarry;
-	 //logic [3:0] banderas;
-	 //crear un logic de X bits para guardar cada uno de las flags
-	 sumador #(N) mysumador( .num1(operand1), .num2(operand2),.Cin(0),.Cout(cout) ,.Resul(res_s)); //Addition 1
-	 restador #(N) myrestador(.num1(operand1), .num2(operand2),.Carryout(negcarry), .Result(res_r)); //Substraction
-	 Multiplicador #(N) mymultiplicador(.num1(operand1), .num2(operand2), .Result(res_m),.OFLOW(overflow)); //Multiplication2
-	 Divisor #(N) mydivisor(.dividend(operand1), .divisor(operand2), .quotient(res_d), .remainder(res_md)); //Division3
-	 //Module
-	 andoperation #(N) myand(.a(operand1), .b(operand2), .result(res_and)); //AND
-	 oroperator #(N) myor(.a(operand1), .b(operand2), .result(res_or)); //OR
-	 xoroperator #(N) myxor(.a(operand1), .b(operand2), .result(res_xor)); //XOR
-	 shiftleft #(N) myshiftl(.a(operand1), .b(operand2), .result(res_sl)); //Shift left
-	 shiftright #(N) myshiftr(.a(operand1), .b(operand2), .result(res_sr)); //Shift left
-	 assign banderas[2]=cout;
-	 assign banderas[3]=overflow;
-	 assign banderas[0]=negcarry;
+module Alu#(parameter N = 4)
+			(
+				input [N-1:0] a_i,
+				input [N-1:0] b_i,
+				input [2:0] opcode_i,
+				output logic [N-1:0] result_o,
+				output [3:0] ALUFlags
+			);
+			
 	
-	//This creates the selection based on op_select, after number 10 repeats some operations
-    always_comb begin
-        case(op_select)
-            4'b0000: resultado = res_s; // Addition
-            4'b0001: resultado = res_r; // Subtraction
-            4'b0010: resultado = res_and; // Multiplication
-            4'b0011: resultado = res_or; // Division
-				4'b0100: resultado = res_md; // Module
-            4'b0101: resultado = res_and; // AND
-            4'b0110: resultado = res_or; // OR
-            4'b0111: resultado = res_xor; // XOR
-				4'b1000: resultado = res_sl; // Shift left
-            4'b1001: resultado = res_sr; // Shiftright
-            4'b1010: resultado = res_and; // AND
-            4'b1011: resultado = res_or; // OR
-				4'b1100: resultado = res_xor; // XOR
-            4'b1101: resultado = res_sl; // Shift left
-            4'b1110: resultado = res_sr; // Shiftright
-            4'b1111: resultado = res_s; // Addition
-            default: resultado = 8'h00; // Default case 
-        endcase
-		  banderas[1] = (resultado == 0) ? 1'b1 : 1'b0;
-    end
+	logic [N-1:0] arith_result_w;
+	logic arith_v;
+	logic arith_c;
+	
+	AluAritmetic #(.N(N)) arithmetics (
+		.a_i(a_i),
+		.b_i(b_i),
+		.opcode_i(opcode_i),
+		.result_o(arith_result_w),
+		.overflow_o(arith_v),
+		.cout_o(arith_c)
+	);
+	
+	always_comb
+	begin
+		case (opcode_i)
+			3'b010: result_o = a_i & b_i; //Caso AND
+			3'b011: result_o = a_i | b_i; //Caso OR
+			default: result_o = arith_result_w; //resultado de suma o resta
+		endcase
+	end
+	
+	assign ALUFlags[3] = ~opcode_i[1] & arith_v;
+	assign ALUFlags[2] = ~opcode_i[1] & arith_c;
+	assign ALUFlags[1] = (result_o == '0);
+	assign ALUFlags[0] = result_o[N-1];
+	
 endmodule
